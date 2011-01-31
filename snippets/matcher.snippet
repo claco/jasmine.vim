@@ -1,0 +1,9 @@
+to${1}: function() {
+	var summary = this.actual;
+	this.actual = summary.clone().wrap('<div>').parent().html();
+
+	${2}
+
+	return ${3:false};
+},
+

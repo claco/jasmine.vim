@@ -1,0 +1,39 @@
+h1. Vim Plugin for Jasmine javascript testing
+
+This is my first attempt at a vim plugin bundle. I'm sure there are dragons in here. :-)
+
+h2. Installation
+
+I'm currently using Pathogen. That means you should be able to do:
+
+bc. git clone git://github.com/claco/vim-jasmine.git bundle/jasmine
+
+inside of your .vim directory. If you're using submodules to track your bundles:
+
+bc. git submodule add git://github.com/pivotal/jasmine.git bundle/jasmine
+git submodule init
+git submodule update
+
+h2. What it does
+
+This plugin is pretty basic right now. It currently:
+
+* Sets Spec.js and SpecHelper.js files to jasmine/javascript fileType
+* Applies basic syntax highlighting for jasmine keywords in addition to normal javascript syntax
+* Loads snippets for jasmine filetype for:
+** desc: description block with before..it..expect
+** before: beforeEach block
+** after: afterEach block
+** it: it...expect block
+** helper: beforeEach block and matcher for SpecHelper.js
+** matcher: matcher block for SpecHelper.js
+
+h2. Known Issues
+
+The jasmine snippets are loaded from a hardcoded path ~/.vim/bundle/jasmine/snippets. I need to figure out how to not do that.
+
+h2. TODO
+
+* Add commands/functions to run a spec, a spec file, and jasmine:ci
+* Add Red/Green bard to spec runner output and error buffer support
+

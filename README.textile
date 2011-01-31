@@ -6,11 +6,11 @@ h2. Installation
 
 I'm currently using Pathogen. That means you should be able to do:
 
-bc. git clone git://github.com/claco/vim-jasmine.git bundle/jasmine
+bc. git clone git://github.com/claco/jasmine.vim.git bundle/jasmine
 
 inside of your .vim directory. If you're using submodules to track your bundles:
 
-bc. git submodule add git://github.com/pivotal/jasmine.git bundle/jasmine
+bc. git submodule add git://github.com/claco/jasmine.vim.git bundle/jasmine
 git submodule init
 git submodule update
 

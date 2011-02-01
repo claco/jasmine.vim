@@ -4,11 +4,11 @@ This is my first attempt at a vim plugin bundle. I'm sure there are dragons in h
 
 h2. Installation
 
-I'm currently using Pathogen. That means you should be able to do:
+I'm currently using Pathogen and am assuming you are too. That means you should be able to do:
 
 bc. git clone git://github.com/claco/jasmine.vim.git bundle/jasmine
 
-inside of your .vim directory. If you're using submodules to track your bundles:
+inside of your ~/.vim directory. If you're using submodules to track your bundles:
 
 bc. git submodule add git://github.com/claco/jasmine.vim.git bundle/jasmine
 git submodule init
@@ -27,13 +27,13 @@ This plugin is pretty basic right now. It currently:
 ** it: it...expect block
 ** helper: beforeEach block and matcher for SpecHelper.js
 ** matcher: matcher block for SpecHelper.js
-
-h2. Known Issues
-
-The jasmine snippets are loaded from a hardcoded path ~/.vim/bundle/jasmine/snippets. I need to figure out how to not do that.
+** expect: expect..to line
+** spy: spyOn method
 
 h2. TODO
 
 * Add commands/functions to run a spec, a spec file, and jasmine:ci
-* Add Red/Green bard to spec runner output and error buffer support
-
+* Add Red/Green bar to spec runner output and error buffer support
+* docs help file
+* autoload/methods/settings
+* templates for BufNewFile

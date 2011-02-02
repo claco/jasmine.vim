@@ -40,5 +40,3 @@ h2. TODO
 * Add commands/functions to run a spec, a spec file, and jasmine:ci
 * Add Red/Green bar to spec runner output and error buffer support
 * docs help file
-* autoload/methods/settings
-* templates for BufNewFile

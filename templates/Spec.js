@@ -7,4 +7,3 @@ describe('', function () {
     expect(condition).toEqual();
   });
 });
-

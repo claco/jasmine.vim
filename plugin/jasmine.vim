@@ -1,6 +1,8 @@
-if exists("g:loaded_jasmine")
+if exists("g:loaded_jasmine") || &cp                                                                                      
   finish
-endif
+end
 
 let g:loaded_jasmine=1
+
+call jasmine#configure_templates()
 

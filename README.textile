@@ -30,13 +30,20 @@ This plugin is pretty basic right now. It currently:
 ** expect: expect..to line
 ** spy: spyOn method
 * Uses templates for new Spec/SpecHelper buffers
+* Runs all specs in jasmine:ci
 
 You can disable templating by setting g:jasmine_use_templates=""
 
 By default, the plugin assumes the templates are in bundle/jasmine/template and the snippets are in bundle/jasmine/snippets. You can override those by setting g:jasmine_snippets_directory and g:jasmine_templates_directory in your vimrc
 
+h2. Running Specs
+
+Slowly working on interactive spec running support. Currently, the Jasmine() command is provided for jasmine fileType buffers. When invoke, it searchs the curent/parent directories of that buffer for the nearest Rakefile, then invokes rake jasmine:ci to run all specs.
+
+I plan on added Red/Green support, as well as quickfix error support.
+
 h2. TODO
 
-* Add commands/functions to run a spec, a spec file, and jasmine:ci
+* Add commands/functions to run a spec, a spec file
 * Add Red/Green bar to spec runner output and error buffer support
 * docs help file

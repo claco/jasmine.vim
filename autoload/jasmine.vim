@@ -3,6 +3,8 @@ if exists("g:loaded_autoloadjasmine") || &cp
 endif
 
 let g:loaded_autoloadjasmine=1
+let b:jasmine_rakefile=""
+let b:jasmine_root=""
 
 if !exists("g:jasmine_use_templates")
   let g:jasmine_use_templates = 1
@@ -52,4 +54,37 @@ function jasmine#configure_templates()
     autocmd BufNewFile *SpecHelper.js execute "0r".jasmine#templates_directory()."/SpecHelper.js"
     let g:configured_templates=1
   endif
+endfunction
+
+function jasmine#find_root()
+  let dn = expand("%:p:h")
+  let odn = ""
+  while dn != odn
+    let b:jasmine_rakefile = glob(dn."/[Rr]akefile")
+    if b:jasmine_rakefile != ""
+      return dn
+      break
+    endif
+    let odn = dn
+    let dn = fnamemodify(dn,":h")
+  endwhile
+endfunction
+
+function jasmine#run_tests()
+  let b:jasmine_root = jasmine#find_root()
+  execute "!rake ".b:jasmine_rakefile." jasmine:ci"
+endfunction
+
+function jasmine#redbar()
+  hi RedBar ctermfg=white ctermbg=red guibg=red
+  echohl RedBar
+  echon repeat(" ",&columns - 1)
+  echohl
+endfunction
+
+function jasmine#greenbar()
+  hi GreenBar ctermfg=white ctermbg=green guibg=green
+  echohl GreenBar
+  echon repeat(" ",&columns - 1)
+  echohl
 endfunction

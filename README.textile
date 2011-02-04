@@ -39,6 +39,7 @@ By default, the plugin assumes the templates are in bundle/jasmine/template and 
 h2. Running Specs
 
 I'm slowly working on interactive spec running support. Currently, the Jasmine() command is provided for jasmine buffers. When invoked, it searches the current/parent directories of that buffer for the nearest Rakefile and invokes rake jasmine:ci to run all specs.
+Jasmine buffers now have compiler set to the jasmine compiler and <leader>m is mapped to run  :Jasmine -> jasmine#un_tests -> :make -> rake jasmine:ci
 
 I plan on adding Red/Green support, as well as quickfix error support.
 

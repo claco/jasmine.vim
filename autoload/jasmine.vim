@@ -72,7 +72,7 @@ endfunction
 
 function jasmine#run_tests()
   let b:jasmine_root = jasmine#find_root()
-  execute "!rake --rakefile=\"".b:jasmine_rakefile."\" jasmine:ci"
+  execute "make --rakefile=\"".b:jasmine_rakefile."\" jasmine:ci"
 endfunction
 
 function jasmine#redbar()

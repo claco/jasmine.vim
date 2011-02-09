@@ -72,19 +72,38 @@ endfunction
 
 function jasmine#run_tests()
   let b:jasmine_root = jasmine#find_root()
-  execute "make --rakefile=\"".b:jasmine_rakefile."\" jasmine:ci"
+
+  echon "Running Jasmine tests..."
+  silent! let result = system("rake --rakefile=\"".b:jasmine_rakefile."\" jasmine:ci BACKGROUND=true")
+  redraw
+
+  let lines = split(result, "\n")
+  for line in lines
+    if line =~ '\d\+ examples, \(\d\+\) failure'
+      if line =~ ', 0 failure'
+        call jasmine#greenbar(line)
+      else
+        call jasmine#redbar(line)
+      endif
+
+      redraw
+      break
+    endif
+  endfor
 endfunction
 
-function jasmine#redbar()
-  hi RedBar ctermfg=white ctermbg=red guibg=red
+function jasmine#redbar(message)
+  let message = " ".a:message
+  hi RedBar ctermfg=white ctermbg=red guifg=white guibg=red
   echohl RedBar
-  echon repeat(" ",&columns - 1)
+  echon  message repeat(" ", &columns - strlen(message) - 1)
   echohl
 endfunction
 
-function jasmine#greenbar()
-  hi GreenBar ctermfg=white ctermbg=green guibg=green
+function jasmine#greenbar(message)
+  let message = " ".a:message
+  hi GreenBar ctermfg=black ctermbg=green guifg=black guibg=green
   echohl GreenBar
-  echon repeat(" ",&columns - 1)
+  echon  message repeat(" ", &columns - strlen(message) - 1)
   echohl
 endfunction

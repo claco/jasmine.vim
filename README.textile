@@ -30,7 +30,7 @@ This plugin is pretty basic right now. It currently:
 ** expect: expect..to line
 ** spy: spyOn method
 * Uses templates for new jasmine buffers
-* Runs all specs in jasmine:ci
+* Runs all specs in jasmine:ci and shows Red/Green bar
 
 You can disable templating by setting g:jasmine_use_templates=""
 
@@ -41,10 +41,12 @@ h2. Running Specs
 I'm slowly working on interactive spec running support. Currently, the Jasmine() command is provided for jasmine buffers. When invoked, it searches the current/parent directories of that buffer for the nearest Rakefile and invokes rake jasmine:ci to run all specs.
 Jasmine buffers now have compiler set to the jasmine compiler and leader-m is mapped to run :Jasmine -> jasmine#run_tests -> :make -> rake jasmine:ci
 
-I plan on adding Red/Green support, as well as quickfix error support.
+If the specs fail, the bottom buffer status turns Red. If all specs pass, the status turns Green.
+
+I plan on adding quickfix error support.
 
 h2. TODO
 
 * Add commands/functions to run a spec, a spec file
-* Add Red/Green bar to spec runner output and error buffer support
+* Add QuickFix error buffer support
 * docs help file

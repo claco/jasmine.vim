@@ -70,7 +70,13 @@ function jasmine#find_root()
   endwhile
 endfunction
 
-function jasmine#run_tests()
+function jasmine#make()
+  let b:jasmine_root = jasmine#find_root()
+
+  execute ":make --rakefile=\"".b:jasmine_rakefile."\" jasmine:ci BACKGROUND=true"
+endfunction
+
+function jasmine#redgreen()
   let b:jasmine_root = jasmine#find_root()
 
   echon "Running Jasmine tests..."

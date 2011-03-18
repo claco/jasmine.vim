@@ -85,7 +85,7 @@ function jasmine#redgreen()
 
   let lines = split(result, "\n")
   for line in lines
-    if line =~ '\d\+ examples, \(\d\+\) failure'
+    if line =~ '\d\+ example\(s*\), \(\d\+\) failure\(s*\)'
       if line =~ ', 0 failure'
         call jasmine#greenbar(line)
       else

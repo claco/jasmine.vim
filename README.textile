@@ -18,7 +18,8 @@ h2. What it does
 
 This plugin is pretty basic right now. It currently:
 
-* Sets *Spec.js and *SpecHelper.js files to filetype=jasmine+javascript
+* Sets *Spec.js and *SpecHelper.js files to filetype=jasmine.javascript syntax=jasmine
+* Sets *Spec.coffee and *SpecHelper.coffee files to filetype=jasmine.coffee syntax=jasmine
 * Applies basic syntax highlighting for jasmine keywords in addition to normal javascript syntax
 * Loads snippets for the jasmine filetype for:
 ** desc: description block with before..it..expect

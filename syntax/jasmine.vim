@@ -2,7 +2,11 @@ if exists("b:current_syntax")
   finish
 endif
 
-runtime! syntax/javascript.vim
+if &ft =~ "coffee"
+  runtime! syntax/coffee.vim
+else
+  runtime! syntax/javascript.vim
+endif
 
 syn case match
 syn keyword specFunctions afterEach beforeEach describe it expect addMatchers spyOn not

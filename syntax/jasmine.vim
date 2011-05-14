@@ -4,12 +4,14 @@ endif
 
 if &ft =~ "coffee"
   runtime! syntax/coffee.vim
-else
+endif
+
+if !exists("b:current_syntax")
   runtime! syntax/javascript.vim
 endif
 
 syn case match
-syn keyword specFunctions afterEach beforeEach describe it expect addMatchers spyOn not
+syn keyword specFunctions afterEach beforeEach describe it expect addMatchers spyOn not context
 syn keyword specDisabled xit xdescribe
 syn keyword specSpys andCallThrough andReturn andThrow andCallFake callCount argsForCall mostRecentCall
 syn keyword specAsync runs waits waitsFor

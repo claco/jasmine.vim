@@ -4,9 +4,7 @@ endif
 
 if &ft =~ "coffee"
   runtime! syntax/coffee.vim
-endif
-
-if !exists("b:current_syntax")
+else
   runtime! syntax/javascript.vim
 endif
 

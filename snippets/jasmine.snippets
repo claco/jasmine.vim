@@ -1,0 +1,55 @@
+snippet desc
+	describe('${1:when...}', function () {
+	  beforeEach(function () {
+			${2}
+	  });
+
+	  it('${3:should...}', function () {
+		expect(${4:condition}).toEqual(${5});
+	  });
+	});
+
+snippet it
+	it('${1:should...}', function() {
+		expect(${2:condition}).toEqual(${3});
+	});
+
+snippet before
+	beforeEach(function () {
+	  ${1}
+	});
+
+snippet after
+	afterEach(function () {
+	  ${1}
+	});
+
+snippet expect
+	expect(${1}).to${2}();
+
+snippet spy
+	spyOn(${1:object}, '${2:method}');
+
+snippet matcher
+	to${1}: function() {
+		var summary = this.actual;
+		this.actual = summary.clone().wrap('<div>').parent().html();
+
+		${2}
+
+		return ${3:false};
+	},
+
+snippet helper
+	beforeEach(function() {
+	  this.addMatchers({
+
+		to${1}: function() {
+		  var summary = this.actual;
+		  this.actual = summary.clone().wrap('<div>').parent().html();
+
+		  ${2}
+
+		  return ${3:false};
+		},
+	});

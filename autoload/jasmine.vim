@@ -98,9 +98,13 @@ function jasmine#redgreen()
   endfor
 endfunction
 
+if !exists("g:jasmine_use_own_colors")
+  hi RedBar ctermfg=white ctermbg=red guifg=white guibg=red
+  hi GreenBar ctermfg=black ctermbg=green guifg=black guibg=green
+endif
+
 function jasmine#redbar(message)
   let message = " ".a:message
-  hi RedBar ctermfg=white ctermbg=red guifg=white guibg=red
   echohl RedBar
   echon  message repeat(" ", &columns - strlen(message) - 1)
   echohl
@@ -108,7 +112,6 @@ endfunction
 
 function jasmine#greenbar(message)
   let message = " ".a:message
-  hi GreenBar ctermfg=black ctermbg=green guifg=black guibg=green
   echohl GreenBar
   echon  message repeat(" ", &columns - strlen(message) - 1)
   echohl

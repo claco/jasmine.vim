@@ -1,0 +1,282 @@
+# Describe
+snippet d [des] describe "...". -> ...
+	describe "${1:description}", ->
+		${2}
+	${3}
+snippet des
+	describe "${1:description}", ->
+		${2}
+	${3}
+
+# Describe with beforeEach and it
+snippet d [desc] describe("...". function() { beforeEach()... it...})
+	describe '${1:when...}', ->
+		beforeEach ->
+			${2}
+
+		it '${3:should...}', ->
+			expect(${4:condition}).toEqual(${5})
+	
+snippet desc
+	describe '${1:when...}', ->
+		beforeEach ->
+			${2}
+
+		it '${3:should...}', ->
+			expect(${4:condition}).toEqual(${5})
+
+# It
+snippet i it "...", -> ... ...
+	it "${1:description}", ->
+		${2}
+	${3}
+snippet it it "...", -> ... ...
+	it "${1:description}", ->
+		${2}
+	${3}
+
+snippet i it '...', -> expect(...).toEqual(...)
+	it '${1:should...}', ->
+		expect(${2:condition}).toEqual(${3})
+	
+snippet it it '...', -> expect(...).toEqual(...)
+	it '${1:should...}', ->
+		expect(${2:condition}).toEqual(${3})
+
+# Any
+snippet any
+	jasmine.any(${1})
+
+# Before Each
+snippet b [bef, before] beforeEach -> ...
+	beforeEach ->
+		${1}
+snippet bef
+	beforeEach ->
+		${1}
+snippet before
+	beforeEach ->
+		${1}
+
+# After Each
+snippet a [aft, after] afterEach -> ...
+	afterEach ->
+		${1}
+snippet aft
+	afterEach ->
+		${1}
+snippet after
+	afterEach ->
+		${1}
+
+# Expect
+snippet e [ex] expect(...)...
+	expect(${1:target})${2}
+snippet ex
+	expect(${1:target})${2}
+
+#Expect to
+snippet e [expect] expect(...).to...()
+	expect(${1}).to${2}()
+snippet expect
+	expect(${1}).to${2}()
+
+# Expect not to be defined
+snippet e [notd] expect(...).not.toBeDefined()...
+	expect(${1:target}).not.toBeDefined()${2}
+snippet notd
+	expect(${1:target}).not.toBeDefined()${2}
+
+# Expect not to be falsy
+snippet e [notf] expect(...).to.toBeFalsy()...
+	expect(${1:target}).not.toBeFalsy()${2}
+snippet notf
+	expect(${1:target}).not.toBeFalsy()${2}
+
+# Expect not to be null
+snippet e [notn] expect(...).not.toBeNull()...
+	expect(${1:target}).not.toBeNull()${2}
+snippet notn
+	expect(${1:target}).not.toBeNull()${2}
+
+# Expect to be truthy
+snippet e [nott] expect(...).not.toBeTruthy()...
+	expect(${1:target}).not.toBeTruthy()${2}
+snippet nott
+	expect(${1:target}).not.toBeTruthy()${2}
+
+# Expect not to contain
+snippet e [notc] expect(...).not.toContain(...)...
+	expect(${1:target}).not.toContain(${2:value})${3}
+snippet notc
+	expect(${1:target}).not.toContain(${2:value})${3}
+
+# Expect not to equal
+snippet e [note] expect(...}).not.toEqual(...)...
+	expect(${1:target}).not.toEqual(${2:value})${3}
+snippet note
+	expect(${1:target}).not.toEqual(${2:value})${3}
+
+# Expect not to match
+snippet e [notm] expect(...).not.toBeDefined()...
+	expect(${1:target}).not.toBeDefined()${2}
+snippet notm
+	expect(${1:target}).not.toBeDefined()${2}
+
+# Expect not
+snippet e [notx] expect(...).not...
+	expect(${1:target}).not${2}
+snippet notx
+	expect(${1:target}).not${2}
+
+# Expect to be defined
+snippet e [ed] expect(...).toBeDefined()...
+	expect(${1:target}).toBeDefined()${2}
+snippet ed
+	expect(${1:target}).toBeDefined()${2}
+
+# Expect to be falsy
+snippet e [ef] expect(...).toBeFalsy()...
+	expect(${1:target}).toBeFalsy()${2}
+snippet ef
+	expect(${1:target}).toBeFalsy()${2}
+
+# Expect to be null
+snippet e [en] expect(...).toBeNull()...
+	expect(${1:target}).toBeNull()${2}
+snippet en
+	expect(${1:target}).toBeNull()${2}
+
+# Expect to be truthy
+snippet e [et] expect(...).toBeTruthy()...
+	expect(${1:target}).toBeTruthy()${2}
+snippet et
+	expect(${1:target}).toBeTruthy()${2}
+
+# Expect to contain
+snippet e [ec] expect(...).toContain(...)...
+	expect(${1:target}).toContain(${2:value})${3}
+snippet ec
+	expect(${1:target}).toContain(${2:value})${3}
+
+# Expect to equal
+snippet e [ee] expect(...).toEqual(...)...
+	expect(${1:target}).toEqual(${2:value})${3}
+snippet ee
+	expect(${1:target}).toEqual(${2:value})${3}
+
+# Expect to match
+snippet e [em] expect(...).toMatch(...)...
+	expect(${1:target}).toMatch(${2:pattern})${3}
+snippet em
+	expect(${1:target}).toMatch(${2:pattern})${3}
+
+# Expect was called with
+snippet e [escw] expect(...).wasCalledWith(...)...
+	expect(${1:target}).wasCalledWith(${2:arguments})${3}
+snippet escw
+	expect(${1:target}).wasCalledWith(${2:arguments})${3}
+
+# Expect was called
+snippet e [esc] expect(...).wasCalled()...
+	expect(${1:target}).wasCalled()${2}
+snippet esc
+	expect(${1:target}).wasCalled()${2}
+
+# Expect was not called with
+snippet e [notscw] expect(...).wasNotCalledWith(...)...
+	expect(${1:target}).wasNotCalledWith(${2:arguments})${3}
+snippet notscw
+	expect(${1:target}).wasNotCalledWith(${2:arguments})${3}
+
+# Expect was not called
+snippet e [notsc] expect(...).wasNotCalled()...
+	expect(${1:target}).wasNotCalled()${3}
+snippet notsc
+	expect(${1:target}).wasNotCalled()${3}
+
+# Spy on
+snippet s [spy] spyOn(..., "...")...
+	spyOn(${1:object}, "${2:method}")${3}
+snippet s [spy] spyOn(..., "...")
+	spyOn(${1:object}, "${2:method}")${3}
+snippet spy
+	spyOn(${1:object}, '${2:method}')
+
+# Spy on and call fake
+snippet s [scf] spyOn(..., "...").andCallFake(...)...
+	spyOn(${1:object}, "${2:method}").andCallFake(${3:function})${4}
+snippet scf
+	spyOn(${1:object}, "${2:method}").andCallFake(${3:function})${4}
+
+# Spy on and call through
+snippet s [sct] spyOn(..., "...").andCallThrough()...
+	spyOn(${1:object}, "${2:method}").andCallThrough()${3}
+snippet sct
+	spyOn(${1:object}, "${2:method}").andCallThrough()${3}
+
+# Spy on and return
+snippet s [sr] spyOn(..., "...").andReturn(...)...
+	spyOn(${1:object}, "${2:method}").andReturn(${3:arguments})${4}
+snippet sr
+	spyOn(${1:object}, "${2:method}").andReturn(${3:arguments})${4}
+
+# Spy on and throw
+snippet s [st] spyOn(..., "...").andThrow(...)...
+	spyOn(${1:object}, "${2:method}").andThrow(${3:exception})${4}
+snippet st
+	spyOn(${1:object}, "${2:method}").andThrow(${3:exception})${4}
+
+# Matcher
+snippet m [matcher] to...: -> [init] ... return ...
+	to${1}: ->
+		var summary = this.actual
+		this.actual = summary.clone().wrap('<div>').parent().html()
+
+		${2}
+
+		${3:false}
+snippet matcher
+	to${1}: ->
+		var summary = this.actual
+		this.actual = summary.clone().wrap('<div>').parent().html()
+
+		${2}
+
+		${3:false}
+
+#Helper
+snippet h [helper] beforeEach -> @addMatchers [matcher]
+	beforeEach ->
+		@addMatchers
+			to${1}: ->
+				var summary = this.actual
+				this.actual = summary.clone().wrap('<div>').parent().html()
+
+				${2}
+
+				${3:false}
+snippet helper
+	beforeEach ->
+		@addMatchers
+			to${1}: ->
+				var summary = this.actual
+				this.actual = summary.clone().wrap('<div>').parent().html()
+
+				${2}
+
+				${3:false}
+
+# Runs
+snippet r [ru] runs -> ...
+	runs ->
+		${1}
+snippet ru
+	runs ->
+		${1}
+
+# Waits
+snippet w [wa] waits(...)...
+	waits(${1})${2}
+snippet wa
+	waits(${1})${2}

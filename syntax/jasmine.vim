@@ -13,7 +13,7 @@ syn keyword specFunctions afterEach beforeEach describe it expect addMatchers sp
 syn keyword specDisabled xit xdescribe
 syn keyword specSpys andCallThrough andReturn andThrow andCallFake callCount argsForCall mostRecentCall
 syn keyword specAsync runs waits waitsFor
-syn match specMatcher "to[A-Za-z0-9_]*"
+syn match specMatcher "\.to[A-Za-z0-9_]*"
 syn keyword specjQuery loadFixtures readFixtures setFixtures sandbox clearCache cleanUp
 
 hi def link specFunctions Special

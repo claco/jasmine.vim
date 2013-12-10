@@ -16,7 +16,7 @@ snippet d [desc] describe("...". function() { beforeEach()... it...})
 
 		it '${3:should...}', ->
 			expect(${4:condition}).toEqual(${5})
-	
+
 snippet desc
 	describe '${1:when...}', ->
 		beforeEach ->
@@ -38,7 +38,7 @@ snippet it it "...", -> ... ...
 snippet i it '...', -> expect(...).toEqual(...)
 	it '${1:should...}', ->
 		expect(${2:condition}).toEqual(${3})
-	
+
 snippet it it '...', -> expect(...).toEqual(...)
 	it '${1:should...}', ->
 		expect(${2:condition}).toEqual(${3})
@@ -197,8 +197,6 @@ snippet notsc
 
 # Spy on
 snippet s [spy] spyOn(..., "...")...
-	spyOn(${1:object}, "${2:method}")${3}
-snippet s [spy] spyOn(..., "...")
 	spyOn(${1:object}, "${2:method}")${3}
 snippet spy
 	spyOn(${1:object}, '${2:method}')
